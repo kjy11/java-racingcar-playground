@@ -8,7 +8,7 @@ public class StringAddCalculatorTest_Base {
 
     @Test
     void 문자열_구분_쉼표_콜론() {
-        String[] result = StringAddCalculator.splitByDivider("1,2:3");
+        String[] result = StringAddCalculator.splitByBaseDelimiter("1,2:3");
         assertThat(result).containsExactly("1", "2", "3");
     }
 }
