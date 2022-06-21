@@ -9,7 +9,12 @@ public class StringAddCalculator {
     private static final String BASE_DIVIDER_COLON = ":";
 
     public static int splitAndSum(String input) {
-        return 0;
+        int result = 0;
+        if (input == null || input.equals("")) {
+            return result;
+        }
+        result = add(splitByDivider(input));
+        return result;
     }
 
     public static String[] splitByDivider(String input) {
@@ -23,7 +28,23 @@ public class StringAddCalculator {
         return result;
     }
 
-    public static String[] splitByDivider(String input, String divider) {
+    private static String[] splitByDivider(String input, String divider) {
         return input.split(divider);
+    }
+
+    private static int add(String[] processedInput) throws NumberFormatException {
+        int result = 0;
+        for (String string : processedInput) {
+            result += stringToInt(string);
+        }
+        return result;
+    }
+
+    private static int stringToInt(String string) throws NumberFormatException {
+        int result = Integer.parseInt(string);
+        if (result < 0) {
+            throw new IllegalArgumentException();
+        }
+        return result;
     }
 }
