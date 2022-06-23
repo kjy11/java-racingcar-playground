@@ -10,6 +10,7 @@ public class CarController {
     public void play(String carNames, int roundCount) {
         Cars cars = createCars(carNames);
         race(cars, roundCount);
+        ResultView.printWinners(cars.getWinnerCars());
     }
 
     private Cars createCars(String carNames) {
