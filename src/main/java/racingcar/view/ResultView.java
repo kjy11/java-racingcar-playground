@@ -8,7 +8,7 @@ public class ResultView {
 
     public static void printResultMessage() {
         System.out.println();
-        System.out.print("실행결과");
+        System.out.println("실행결과");
     }
 
     public static void printCarLocation(Car car) {

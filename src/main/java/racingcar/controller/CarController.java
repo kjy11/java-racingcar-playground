@@ -13,6 +13,7 @@ public class CarController {
     }
 
     public void play(String[] carNames, int roundCount) {
+        ResultView.printResultMessage();
         Cars cars = createCars(carNames);
         race(cars, roundCount);
         ResultView.printWinners(cars.getWinnerCars());
