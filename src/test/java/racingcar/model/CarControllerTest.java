@@ -8,6 +8,6 @@ public class CarControllerTest {
     @Test
     void play() {
         CarController controller = new CarController();
-        controller.play("pobi,crong,honux", 5);
+        controller.play(new String[] {"pobi", "crong", "honux"}, 5);
     }
 }

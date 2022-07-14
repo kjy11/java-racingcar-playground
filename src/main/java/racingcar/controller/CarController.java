@@ -1,20 +1,25 @@
 package racingcar.controller;
 
 import racingcar.model.Cars;
+import racingcar.view.InputView;
 import racingcar.view.ResultView;
 
 public class CarController {
 
-    private static final String NAME_SPLIT_SYMBOL = ",";
+    public void play() {
+        String[] carNames = InputView.namesInput();
+        int roundCount = InputView.raceCountInput();
+        play(carNames, roundCount);
+    }
 
-    public void play(String carNames, int roundCount) {
+    public void play(String[] carNames, int roundCount) {
         Cars cars = createCars(carNames);
         race(cars, roundCount);
         ResultView.printWinners(cars.getWinnerCars());
     }
 
-    private Cars createCars(String carNames) {
-        Cars cars = new Cars(carNames.split(NAME_SPLIT_SYMBOL));
+    private Cars createCars(String[] carNames) {
+        Cars cars = new Cars(carNames);
         ResultView.printCarsLocation(cars);
         return cars;
     }
