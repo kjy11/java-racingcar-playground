@@ -10,6 +10,6 @@ public class CarTest {
     void 자동차_전진() {
         Car car = new Car("car");
         car.moveForward();
-        assertThat(car.getLocation()).isEqualTo(2);
+        assertThat(car.getLocationAsInt()).isEqualTo(2);
     }
 }

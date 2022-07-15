@@ -8,20 +8,28 @@ public class Car {
     private static final int RANDOM_MIN = 1;
     private static final int MOVE_INDICATORS = 4;
 
-    private final String name;
-    private int location;
+    private final CarName name;
+    private final Location location;
 
     public Car(String name) {
-        this.name = name;
-        this.location = 1;
+        this(name, 1);
     }
 
-    public String getName() {
-        return name;
+    public Car(String name, int location) {
+        this(new CarName(name), new Location(location));
     }
 
-    public int getLocation() {
-        return location;
+    public Car(CarName carName, Location location) {
+        this.name = carName;
+        this.location = location;
+    }
+
+    public String getNameAsString() {
+        return name.getCarName();
+    }
+
+    public int getLocationAsInt() {
+        return location.getLocation();
     }
 
     public void moveOrStay() {
@@ -31,7 +39,7 @@ public class Car {
     }
 
     void moveForward() {
-        location += 1;
+        location.add();
     }
 
     private int getRandomNumberForMoveOrStay() {

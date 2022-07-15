@@ -25,7 +25,7 @@ public class Cars {
     }
 
     public List<Car> getWinnerCars() {
-        int max = cars.stream().mapToInt(Car::getLocation).max().orElse(1);
-        return cars.stream().filter(c -> c.getLocation() == max).collect(Collectors.toList());
+        int max = cars.stream().mapToInt(Car::getLocationAsInt).max().orElse(1);
+        return cars.stream().filter(c -> c.getLocationAsInt() == max).collect(Collectors.toList());
     }
 }
